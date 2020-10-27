@@ -6,4 +6,10 @@
 </template>
 
 <style lang="scss">
+	body {
+		background-color: var(--primary-color);
+		& h1 {
+			color: var(--info-color);
+		}
+	}
 </style>
