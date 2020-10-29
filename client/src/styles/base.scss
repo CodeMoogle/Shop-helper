@@ -50,3 +50,46 @@ img {
 	--danger-color: #d9534f;
 	--muted-color: #828282;
 }
+
+.form {
+	width: 90%;
+	max-width: 400px;
+	&-group {
+		margin-bottom: 1em;
+		transition: all 0.3s;
+		&:focus-within {
+			transform: scale(1.1);
+		}
+	}
+	&-label {
+		font-size: 1em;
+		color: #aaa;
+		display: block;
+		opacity: 1;
+		transform: translateY(-1.8em);
+		transform-origin: 0 0;
+		transition: all 0.3s;
+	}
+	&-control {
+		width: 100%;
+		padding: 10px;
+		box-shadow: none;
+		background-color: rgba(0, 0, 0, 0.02);
+		border-radius: 0px;
+		border-color: var(--muted-color);
+		border-style: none none solid none;
+		transition: all 0.3s;
+		&::placeholder {
+			color: transparent;
+		}
+		&:focus {
+			box-shadow: none;
+			border-color: var(--info-color);
+		}
+		&:focus + .form-label,
+		&:not(:placeholder-shown) + .form-label {
+			transform: translateY(-3.5em) scale(0.8);
+			color: #333;
+		}
+	}
+}
