@@ -17,7 +17,10 @@ ul {
 
 a {
 	text-decoration: none;
-	color: #333;
+	color: var(--info-color);
+	&:hover {
+		filter: brightness(1.2);
+	}
 }
 
 h1,
@@ -40,6 +43,7 @@ img {
 	width: 100%;
 }
 
+/* variables */
 :root {
 	--primary-color: #edeef0;
 	--secondary-color: #ffffff;
@@ -50,6 +54,8 @@ img {
 	--danger-color: #d9534f;
 	--muted-color: #828282;
 }
+
+/* base */
 
 .form {
 	width: 90%;
@@ -73,7 +79,6 @@ img {
 	}
 	&-control {
 		width: 100%;
-		//font-size: 16px;
 		padding: 10px;
 		box-shadow: none;
 		background-color: rgba(0, 0, 0, 0.02);

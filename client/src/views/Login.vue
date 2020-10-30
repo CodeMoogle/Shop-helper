@@ -1,5 +1,5 @@
 <template>
-	<div class="login container flex-column">
+	<div class="login container-page flex-column">
 		<h1>Login</h1>
 		<form class="form" @submit.prevent="loginHandler">
 			<div class="form-group">

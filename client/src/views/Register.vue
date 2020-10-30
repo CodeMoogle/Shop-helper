@@ -1,5 +1,5 @@
 <template>
-	<div class="register container flex-column">
+	<div class="register container-page flex-column">
 		<h1>Register</h1>
 
 		<form class="form" @submit.prevent="loginHandler">

@@ -1,5 +1,5 @@
 <template>
-	<div class="home">
+	<div class="home container flex">
 		<h1>Home page</h1>
 	</div>
 </template>
