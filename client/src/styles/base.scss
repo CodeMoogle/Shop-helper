@@ -66,12 +66,14 @@ img {
 		color: #aaa;
 		display: block;
 		opacity: 1;
-		transform: translateY(-1.8em);
+		//transform: translateY(-1.8em);
+		transform: translate(0.5em, -1.8em);
 		transform-origin: 0 0;
 		transition: all 0.3s;
 	}
 	&-control {
 		width: 100%;
+		//font-size: 16px;
 		padding: 10px;
 		box-shadow: none;
 		background-color: rgba(0, 0, 0, 0.02);
