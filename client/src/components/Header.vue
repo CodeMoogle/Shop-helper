@@ -1,11 +1,13 @@
 <template>
 	<header class="app__header">
 		<div class="container flex">
-			<h1 class="app__header-logo">
+			<div class="app__header-logo">
+				<Sidebar />
 				<router-link to="/">
 					<img src="@/assets/logo/brand-logo.png" alt="logo" />
 				</router-link>
-			</h1>
+			</div>
+
 			<div class="app__header-buttons">
 				<router-link to="/register" class="btn">Sign up</router-link>
 				<router-link to="/login" class="btn">Sign in</router-link>
@@ -15,8 +17,13 @@
 </template>
 
 <script>
+import Sidebar from "@/components/Sidebar.vue";
+
 export default {
 	name: "Header",
+	components: {
+		Sidebar,
+	},
 };
 </script>
 
@@ -29,14 +36,18 @@ export default {
 		height: 50px;
 		background-color: var(--secondary-color);
 		box-shadow: 0 4px 6px -6px var(--dark-color);
+		z-index: 100;
 		& .flex {
 			justify-content: space-between;
 		}
 		&-logo {
+			display: flex;
+			align-items: center;
 			height: 100%;
 			& img {
 				width: auto;
 				height: 45px;
+				margin-left: 20px;
 				padding-top: 5px;
 			}
 		}

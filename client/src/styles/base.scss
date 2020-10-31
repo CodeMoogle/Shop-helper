@@ -57,7 +57,7 @@ img {
 }
 
 /* base */
-
+/* forms */
 .form {
 	width: 90%;
 	max-width: 400px;
@@ -99,6 +99,26 @@ img {
 		&:not(:placeholder-shown) + .form__label {
 			transform: translateY(-3.5em) scale(0.8);
 			color: #333;
+		}
+	}
+}
+
+/* lists */
+.list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 10px 0;
+	z-index: 100;
+	&__item {
+		width: 100%;
+		padding: 10px 20px;
+		font-weight: bold;
+		cursor: pointer;
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.1);
 		}
 	}
 }
