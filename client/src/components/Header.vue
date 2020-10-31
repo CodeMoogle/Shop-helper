@@ -2,13 +2,13 @@
 	<header class="app__header">
 		<div class="container flex">
 			<h1 class="app__header-logo">
-				<a href="#">
+				<router-link to="/">
 					<img src="@/assets/logo/brand-logo.png" alt="logo" />
-				</a>
+				</router-link>
 			</h1>
 			<div class="app__header-buttons">
-				<a href="#" class="btn">Sing up</a>
-				<a href="#" class="btn">Sing in</a>
+				<router-link to="/register" class="btn">Sign up</router-link>
+				<router-link to="/login" class="btn">Sign in</router-link>
 			</div>
 		</div>
 	</header>

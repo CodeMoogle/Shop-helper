@@ -3,55 +3,55 @@
 		<h1>Register</h1>
 
 		<form class="form" @submit.prevent="loginHandler">
-			<div class="form-group">
+			<div class="form__group">
 				<input
 					type="text"
 					name="username"
 					id="RegUsername"
-					class="form-control"
+					class="form__control"
 					placeholder="Chuck Norris"
 					v-model="username"
 				/>
-				<label for="RegUsername" class="form-label">Username</label>
+				<label for="RegUsername" class="form__label">Username</label>
 			</div>
 
-			<div class="form-group">
+			<div class="form__group">
 				<input
 					type="email"
 					name="email"
 					id="RegEmail"
-					class="form-control"
+					class="form__control"
 					placeholder="example@gmail.com"
 					required
 					v-model="email"
 				/>
-				<label for="RegEmail" class="form-label">Email*</label>
+				<label for="RegEmail" class="form__label">Email*</label>
 			</div>
 
-			<div class="form-group">
+			<div class="form__group">
 				<input
 					type="password"
 					name="password"
 					id="RegPassword"
-					class="form-control"
+					class="form__control"
 					placeholder="Password"
 					required
 					v-model="password"
 				/>
-				<label for="RegPassword" class="form-label">Password*</label>
+				<label for="RegPassword" class="form__label">Password*</label>
 			</div>
 
-			<div class="form-group">
+			<div class="form__group">
 				<input
 					type="password"
 					name="password-confirm"
 					id="RegPasswordConfirm"
-					class="form-control"
+					class="form__control"
 					placeholder="Password"
 					required
 					v-model="passwordConfirm"
 				/>
-				<label for="RegPasswordConfirm" class="form-label"
+				<label for="RegPasswordConfirm" class="form__label"
 					>Confirm Password*</label
 				>
 			</div>
