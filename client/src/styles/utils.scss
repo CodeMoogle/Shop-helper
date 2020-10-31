@@ -34,26 +34,13 @@
 	height: 100%;
 }
 
-.card {
-	color: #333;
-	background-color: #fff;
-	border-radius: 10px;
-	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-	padding: 20px;
-	margin: 10px;
-}
-
-/* Buttons */
-.btn {
-	display: inline-block;
-	padding: 10px 30px;
-	background: var(--info-color);
-	color: #fff;
-	border: 0;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: all 0.3s;
-	&:hover {
-		filter: brightness(1.1);
-	}
+/* modals */
+.outside-sidebar {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 50px;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.2);
+	z-index: -1;
 }

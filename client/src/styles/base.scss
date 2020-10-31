@@ -56,7 +56,20 @@ img {
 	--muted-color: #828282;
 }
 
-/* base */
+/* Buttons */
+.btn {
+	display: inline-block;
+	padding: 10px 30px;
+	background: var(--info-color);
+	color: #fff;
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s;
+	&:hover {
+		filter: brightness(1.1);
+	}
+}
 /* forms */
 .form {
 	width: 90%;
@@ -74,7 +87,6 @@ img {
 		color: #aaa;
 		display: block;
 		opacity: 1;
-		//transform: translateY(-1.8em);
 		transform: translate(0.5em, -1.8em);
 		transform-origin: 0 0;
 		transition: all 0.3s;
@@ -121,4 +133,13 @@ img {
 			background-color: rgba(0, 0, 0, 0.1);
 		}
 	}
+}
+/* others */
+.card {
+	color: #333;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+	padding: 20px;
+	margin: 10px;
 }

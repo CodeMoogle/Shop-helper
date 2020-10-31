@@ -1,13 +1,13 @@
 <template>
 	<div class="sidebar">
-		<div class="sidebar__btn">
-			<a href="#" @click.prevent="show">
+		<div class="sidebar__btn" @click.prevent="show">
+			<a href="#">
 				<i class="fas fa-bars"></i>
 			</a>
 		</div>
 
 		<transition name="slide">
-			<nav class="sidebar__navigation" v-if="isOpen">
+			<nav class="sidebar__navigation" v-if="isOpen" @click.prevent="show">
 				<ul class="list">
 					<li class="list__item">
 						<i class="fas fa-home"></i>
@@ -24,6 +24,7 @@
 				</ul>
 			</nav>
 		</transition>
+		<div v-if="isOpen" class="outside-sidebar" @click="isOpen = false"></div>
 	</div>
 </template>
 
@@ -36,7 +37,10 @@ export default {
 		};
 	},
 	methods: {
-		show() {
+		show(e) {
+			if (e.target instanceof HTMLElement && !this.$el.contains(e.target)) {
+				this.isOpen = false;
+			}
 			this.isOpen = !this.isOpen;
 		},
 	},
@@ -66,7 +70,7 @@ export default {
 
 	.slide-enter-active,
 	.slide-leave-active {
-		transition: left 0.5s;
+		transition: left 0.3s;
 	}
 
 	.slide-enter,
