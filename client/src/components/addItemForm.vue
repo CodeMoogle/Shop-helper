@@ -1,0 +1,90 @@
+<template>
+	<div class="item-form">
+		<form class="form" @submit.prevent="submitHandler">
+			<div class="form__group">
+				<input
+					type="text"
+					name="addItemLabel"
+					id="addItemLabel"
+					class="form__control"
+					placeholder="Product label"
+					required
+					v-model="label"
+				/>
+				<label for="addItemLabel" class="form__label">Product label*</label>
+			</div>
+
+			<div class="form__group">
+				<input
+					type="number"
+					name="addItemQuantity"
+					id="addItemQuantity"
+					class="form__control"
+					placeholder="Quantity"
+					required
+					v-model="quantity"
+				/>
+				<label for="addItemQuantity" class="form__label">Quantity*</label>
+			</div>
+
+			<div class="form__group">
+				<input
+					type="date"
+					name="addItemExpire"
+					id="addItemExpire"
+					class="form__control"
+					placeholder=""
+					required
+					v-model="expire"
+				/>
+				<label for="addItemExpire" class="form__label">Expire date*</label>
+			</div>
+
+			<input type="submit" value="Add item" class="btn" />
+		</form>
+	</div>
+</template>
+
+<script>
+export default {
+	name: "AddItemForm",
+	data() {
+		return {
+			label: "",
+			quantity: null,
+			expire: "",
+		};
+	},
+	methods: {
+		submitHandler() {
+			console.log("items submit");
+			this.label = "";
+			this.quantity = "";
+			this.expire = "";
+		},
+	},
+};
+</script>
+
+<style lang="scss">
+	.item-form {
+		& .form {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+		}
+		& .form__group:first-child {
+			width: 100%;
+		}
+		& .form__group:not(:first-child) {
+			width: 45%;
+			margin: 0 5px;
+		}
+
+		& .btn {
+			width: 100%;
+			font-weight: bold;
+		}
+	}
+</style>
