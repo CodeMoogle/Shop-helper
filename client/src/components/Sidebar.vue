@@ -70,7 +70,7 @@ export default {
 
 	.slide-enter-active,
 	.slide-leave-active {
-		transition: left 0.3s;
+		transition: left 0.3s ease-in-out;
 	}
 
 	.slide-enter,
