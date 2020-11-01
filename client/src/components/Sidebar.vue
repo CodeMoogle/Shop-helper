@@ -8,20 +8,20 @@
 
 		<transition name="slide">
 			<nav class="sidebar__navigation" v-if="isOpen" @click.prevent="show">
-				<ul class="list">
-					<li class="list__item">
+				<div class="list">
+					<router-link to="/" class="list__item">
 						<i class="fas fa-home"></i>
-						<router-link to="/">Main page</router-link>
-					</li>
-					<li class="list__item">
+						<span>Main page</span>
+					</router-link>
+					<router-link to="/login" class="list__item">
 						<i class="fas fa-home"></i>
-						<router-link to="/login">Sign in</router-link>
-					</li>
-					<li class="list__item">
+						<span>Sign in</span>
+					</router-link>
+					<router-link to="/register" class="list__item">
 						<i class="fas fa-home"></i>
-						<router-link to="/register">Sign up</router-link>
-					</li>
-				</ul>
+						<span>Sign up</span>
+					</router-link>
+				</div>
 			</nav>
 		</transition>
 		<div v-if="isOpen" class="outside-sidebar" @click="isOpen = false"></div>

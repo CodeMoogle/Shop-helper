@@ -70,6 +70,15 @@ img {
 		filter: brightness(1.1);
 	}
 }
+.btn_outline {
+	border: 1px solid var(--info-color);
+	background-color: transparent;
+	color: var(--info-color);
+	&:hover {
+		background-color: var(--info-color);
+		color: #fff;
+	}
+}
 /* forms */
 .form {
 	width: 90%;

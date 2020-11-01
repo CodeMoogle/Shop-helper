@@ -9,8 +9,10 @@
 			</div>
 
 			<div class="app__header-buttons">
-				<router-link to="/register" class="btn">Sign up</router-link>
-				<router-link to="/login" class="btn">Sign in</router-link>
+				<router-link to="/register" class="btn btn_outline">
+					Sign up
+				</router-link>
+				<router-link to="/login" class="btn btn_outline"> Sign in </router-link>
 			</div>
 		</div>
 	</header>
@@ -47,16 +49,21 @@ export default {
 			& img {
 				width: auto;
 				height: 45px;
-				margin-left: 20px;
+				margin-left: 30px;
 				padding-top: 5px;
 			}
 		}
 		&-buttons {
 			& .btn {
-				margin: 0 10px;
+				margin: 0 5px;
 				padding: 5px 10px;
 				font-weight: bold;
 			}
+		}
+	}
+	@media (max-width: $xs-phones) {
+		.app__header-buttons .btn:first-child {
+			display: none;
 		}
 	}
 </style>
