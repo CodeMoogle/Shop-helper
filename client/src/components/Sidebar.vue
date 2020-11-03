@@ -64,6 +64,9 @@ export default {
 			min-height: 100vh;
 			background-color: var(--secondary-color);
 		}
+		* .list {
+			z-index: 100;
+		}
 		&__btn {
 			font-size: 25px;
 		}
