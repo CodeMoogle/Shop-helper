@@ -72,18 +72,18 @@ export default {
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
-			justify-content: space-between;
+			justify-content: space-around;
 		}
 		& .form__group:first-child {
-			width: 100%;
+			width: 90%;
 		}
 		& .form__group:not(:first-child) {
-			width: 45%;
+			width: 40%;
 			margin: 0 5px;
 		}
 
 		& .btn {
-			width: 100%;
+			width: 90%;
 			font-weight: bold;
 		}
 	}
