@@ -25,6 +25,11 @@ export default {
 	body {
 		background-color: var(--primary-color);
 	}
+	#app {
+		height: 100%;
+		height: 100vh;
+		font-size: 16px;
+	}
 
 	.component-fade-enter-active,
 	.component-fade-leave-active {

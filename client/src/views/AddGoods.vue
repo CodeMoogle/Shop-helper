@@ -1,7 +1,13 @@
 <template>
 	<section class="add-goods container-page flex-column">
-		<AddItemForm />
-		<ItemsList />
+		<div class="add-goods__form">
+			<h2>Adding a product to the overdue list</h2>
+			<AddItemForm />
+		</div>
+
+		<div class="add-goods__list">
+			<ItemsList />
+		</div>
 	</section>
 </template>
 
@@ -18,8 +24,16 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 	.add-goods {
-		margin-top: 5rem;
+		&__form {
+			& h2 {
+				margin-bottom: 30px;
+				text-align: center;
+			}
+		}
+		&__list {
+			margin-top: 40px;
+		}
 	}
 </style>
