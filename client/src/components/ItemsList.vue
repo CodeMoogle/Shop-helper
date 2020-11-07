@@ -72,6 +72,9 @@ export default {
 				line-height: 1.2;
 				font-weight: bold;
 				text-align: center;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 		}
 		&__action {
@@ -85,13 +88,19 @@ export default {
 
 		& .card {
 			width: 300px;
-			min-height: 250px;
+			height: 200px;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			align-items: center;
 			padding: 0;
-			margin: 20px 5px;
+			margin: 20px 10px;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+
+			&:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+			}
 		}
 	}
 </style>

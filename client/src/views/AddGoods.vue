@@ -1,5 +1,5 @@
 <template>
-	<section class="add-goods container flex-column">
+	<section class="add-goods container-page flex-column">
 		<AddItemForm />
 		<ItemsList />
 	</section>

@@ -1,5 +1,5 @@
 <template>
-	<div class="register container-page flex-column">
+	<div class="register container-center flex-column">
 		<div class="auth-form">
 			<h1>Register</h1>
 
