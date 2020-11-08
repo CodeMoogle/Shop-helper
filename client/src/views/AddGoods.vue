@@ -1,11 +1,14 @@
 <template>
 	<section class="add-goods container-page flex-column">
-		<div class="add-goods__form">
+		<div class="add-goods__form card">
 			<h2>Adding a product to the overdue list</h2>
+			<hr />
 			<AddItemForm />
 		</div>
 
-		<div class="add-goods__list">
+		<div class="add-goods__list card">
+			<h2>Products list</h2>
+			<hr />
 			<ItemsList />
 		</div>
 	</section>
@@ -26,14 +29,23 @@ export default {
 
 <style lang="scss">
 	.add-goods {
+		& h2 {
+			text-align: center;
+		}
+		& hr {
+			margin-bottom: 30px;
+		}
 		&__form {
-			& h2 {
-				margin-bottom: 30px;
-				text-align: center;
-			}
+			width: 100%;
 		}
 		&__list {
-			margin-top: 40px;
+			width: 100%;
+			margin-top: 20px;
+		}
+
+		& .card {
+			max-width: 800px;
+			padding: 10px 5px 20px 5px;
 		}
 	}
 </style>

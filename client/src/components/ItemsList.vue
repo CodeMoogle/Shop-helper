@@ -1,16 +1,17 @@
 <template>
 	<div class="expire">
-		<div class="card" v-for="item in itemsList" :key="item.id">
+		<div class="expire-wrapper" v-for="item in itemsList" :key="item.id">
 			<div class="expire__data">
-				<p class="expire__data-label">{{ item.label }}</p>
-				<hr />
-				<p class="expire__data-quantity">
-					<span>Quantity:</span> {{ item.quantity }}
-				</p>
-				<p class="expire__data-exp"><span>ExpDate:</span> {{ item.expDate }}</p>
-				<p class="expire__data-status">
-					<span>Status:</span> <span class="expire__data-status-bar"></span>
-				</p>
+				<p class="expire__data-title">{{ item.label }}</p>
+
+				<div class="expire__data-info">
+					<p class="expire__data-info__quantity">
+						<span>Quantity:</span> {{ item.quantity }}
+					</p>
+					<p class="expire__data-info__exp">
+						<span>ExpDate:</span> {{ item.expDate }}
+					</p>
+				</div>
 			</div>
 
 			<a href="#" class="expire__action">
@@ -28,7 +29,7 @@ export default {
 			itemsList: [
 				{
 					id: 1,
-					label: "Maxler Golden whey 908gr Vanilla sfdf af af a fafa a  af sad",
+					label: "Maxler Golden whey 908gr Vanilla",
 					quantity: 2,
 					expDate: "2020-11-15",
 				},
@@ -59,47 +60,50 @@ export default {
 <style lang="scss">
 	.expire {
 		width: 100%;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
+		display: grid;
+		grid-template-rows: 1fr;
+		gap: 10px;
+
+		&-wrapper {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 5px;
+			border-radius: 4px;
+			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+			transition: all 0.3s ease-in-out;
+		}
+
 		&__data {
-			padding: 5px 10px;
-			&-label {
+			&-title {
 				width: 100%;
-				transition: all 0.3s;
-				margin-top: 5px;
-				line-height: 1.2;
 				font-weight: bold;
-				text-align: center;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
+			}
+			&-info {
+				display: flex;
+				align-items: center;
+				color: var(--muted-color);
+				& p:first-child {
+					margin-right: 15px;
+				}
+				& p > span {
+					font-weight: bold;
+					font-style: italic;
+				}
 			}
 		}
 		&__action {
-			width: 100%;
-			height: 30px;
-			background-color: var(--danger-color);
-			color: #fff;
-			text-align: center;
-			border-radius: 0 0 10px 10px;
-		}
-
-		& .card {
-			width: 300px;
-			height: 200px;
 			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			padding: 0;
-			margin: 20px 10px;
-			cursor: pointer;
-			transition: all 0.3s ease-in-out;
-
+			justify-content: center;
+			align-items: center;
+			width: 30px;
+			height: 30px;
+			background-color: var(--secondary-color);
+			color: var(--danger-color);
+			border-radius: 50%;
 			&:hover {
-				transform: translateY(-10px);
-				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+				filter: brightness(0.9);
 			}
 		}
 	}

@@ -40,7 +40,7 @@
 				<label for="addItemExpire" class="form__label">Expire date*</label>
 			</div>
 
-			<input type="submit" value="Add item" class="btn" />
+			<input type="submit" value="Add item to list" class="btn" />
 		</form>
 	</div>
 </template>
@@ -85,6 +85,7 @@ export default {
 		& .btn {
 			width: 90%;
 			font-weight: bold;
+			text-transform: uppercase;
 		}
 	}
 </style>

@@ -31,10 +31,6 @@ h2 {
 	margin: 10px 0;
 }
 
-p {
-	margin: 10px 0;
-}
-
 button,
 input {
 	outline: none;
@@ -48,6 +44,7 @@ img {
 :root {
 	--primary-color: #edeef0;
 	--secondary-color: #ffffff;
+	--light-gray-color: #c3c3c3;
 	--dark-color: #002240;
 	--light-color: #f4f4f4;
 	--success-color: #5cb85c;
@@ -168,8 +165,7 @@ img {
 }
 // scrollbar
 ::-webkit-scrollbar {
-	width: 10px;
-	z-index: 99;
+	width: 6px;
 	&-track {
 		border-radius: 8px;
 	}
