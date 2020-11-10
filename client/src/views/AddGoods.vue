@@ -40,12 +40,12 @@ export default {
 		}
 		&__list {
 			width: 100%;
-			margin-top: 20px;
 		}
 
 		& .card {
 			max-width: 800px;
 			padding: 10px 5px 20px 5px;
+			margin: 0 0 20px 0;
 		}
 	}
 </style>

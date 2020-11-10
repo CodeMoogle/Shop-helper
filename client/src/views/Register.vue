@@ -50,7 +50,7 @@
 						class="form__control"
 						placeholder="Password"
 						required
-						v-model="passwordConfirm"
+						v-model="passwordCheck"
 					/>
 					<label for="RegPasswordConfirm" class="form__label"
 						>Confirm Password*</label
@@ -85,7 +85,7 @@ export default {
 			this.username = "";
 			this.email = "";
 			this.password = "";
-			this.passwordConfirm = "";
+			this.passwordCheck = "";
 		},
 	},
 };
