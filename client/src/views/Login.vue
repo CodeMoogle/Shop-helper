@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
 	name: "Login",
 	data() {
@@ -50,10 +51,12 @@ export default {
 		};
 	},
 	methods: {
+		...mapActions(["login"]),
 		loginHandler() {
-			console.log("login");
-			this.email = "";
-			this.password = "";
+			this.login({ email: this.email, password: this.password });
+			this.$router.push("/");
+			// this.email = "";
+			// this.password = "";
 		},
 	},
 };

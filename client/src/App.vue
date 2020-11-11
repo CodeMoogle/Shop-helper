@@ -13,11 +13,14 @@
 <script>
 import Header from "@/components/Header.vue";
 
+import { mapGetters } from "vuex";
+
 export default {
 	name: "App",
 	components: {
 		Header,
 	},
+	computed: mapGetters(["currentUser"]),
 };
 </script>
 
