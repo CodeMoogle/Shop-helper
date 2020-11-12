@@ -13,7 +13,7 @@
 <script>
 import Header from "@/components/Header.vue";
 
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
 	name: "App",
@@ -21,6 +21,10 @@ export default {
 		Header,
 	},
 	computed: mapGetters(["currentUser"]),
+	methods: mapActions(["checkLoggedIn"]),
+	async mounted() {
+		this.checkLoggedIn();
+	},
 };
 </script>
 

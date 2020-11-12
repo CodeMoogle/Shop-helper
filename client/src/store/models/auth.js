@@ -14,19 +14,36 @@ export default {
 				)
 				console.log(res)
 
-				ctx.commit('login', res.data.user, res.data.token)
+				ctx.commit('login', res.data.user)
 				// setup token to local storage
 				localStorage.setItem('auth-token', res.data.token)
 			} catch (error) {
 				// TODO: set error to state.error
 				console.log(error.response.data.msg)
-				console.log(error)
+			}
+		},
+		async checkLoggedIn(ctx) {
+			let token = localStorage.getItem('auth-token')
+			if (token === null) {
+				localStorage.setItem('auth-token', '')
+				token = ''
+			}
+
+			const tokenResponse = await axios.post(
+				'http://localhost:5000/users/tokenIsValid',
+				null,
+				{ headers: { 'x-auth-token': token } }
+			)
+			if (tokenResponse.data) {
+				const userResponse = await axios.get('http://localhost:5000/users/', {
+					headers: { 'x-auth-token': token },
+				})
+				ctx.commit('login', userResponse.data)
 			}
 		},
 	},
 	mutations: {
-		login(state, user, token) {
-			state.token = token
+		login(state, user) {
 			state.user = user
 		},
 	},
