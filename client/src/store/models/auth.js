@@ -1,27 +1,29 @@
 import axios from 'axios'
+import router from '@/router'
 
 export default {
 	state: {
 		user: null,
 	},
 	actions: {
-		async login(ctx, user) {
+		async login({ commit }, user) {
 			try {
 				const userResponse = await axios.post(
 					`${process.env.VUE_APP_URL}/users/login`,
 					user
 				)
 
-				ctx.commit('login', userResponse.data.user)
+				commit('login', userResponse.data.user)
 
 				// setup token to local storage
 				localStorage.setItem('auth-token', userResponse.data.token)
+				router.push('/main', () => {})
 			} catch (error) {
 				// TODO: set error to state.error
 				console.log(error.response.data.msg)
 			}
 		},
-		async checkLoggedIn(ctx) {
+		async checkLoggedIn({ commit }) {
 			let token = localStorage.getItem('auth-token')
 			if (token === null) {
 				localStorage.setItem('auth-token', '')
@@ -37,12 +39,13 @@ export default {
 				const userResponse = await axios.get('http://localhost:5000/users/', {
 					headers: { 'x-auth-token': token },
 				})
-				ctx.commit('login', userResponse.data)
+				commit('login', userResponse.data)
 			}
 		},
-		logout(ctx) {
-			ctx.commit('logout')
+		logout({ commit }) {
+			commit('logout')
 			localStorage.setItem('auth-token', '')
+			router.push('/', () => {})
 		},
 	},
 	mutations: {

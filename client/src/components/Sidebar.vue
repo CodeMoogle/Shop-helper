@@ -14,17 +14,7 @@
 						<span>Main page</span>
 					</router-link>
 
-					<router-link to="/login" class="list__item">
-						<i class="fas fa-home"></i>
-						<span>Sign in</span>
-					</router-link>
-
-					<router-link to="/register" class="list__item">
-						<i class="fas fa-home"></i>
-						<span>Sign up</span>
-					</router-link>
-
-					<router-link to="/add-goods" class="list__item">
+					<router-link to="/addGoods" class="list__item">
 						<i class="fas fa-home"></i>
 						<span>Add goods</span>
 					</router-link>

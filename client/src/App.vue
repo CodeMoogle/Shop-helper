@@ -22,7 +22,7 @@ export default {
 	},
 	computed: mapGetters(["currentUser"]),
 	methods: mapActions(["checkLoggedIn"]),
-	async mounted() {
+	mounted() {
 		this.checkLoggedIn();
 	},
 };

@@ -76,7 +76,7 @@ export default {
 			username: "",
 			email: "",
 			password: "",
-			passwordConfirm: "",
+			passwordCheck: "",
 		};
 	},
 	methods: {

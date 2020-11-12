@@ -54,7 +54,6 @@ export default {
 		...mapActions(["login"]),
 		loginHandler() {
 			this.login({ email: this.email, password: this.password });
-			this.$router.push("/");
 
 			this.email = "";
 			this.password = "";
