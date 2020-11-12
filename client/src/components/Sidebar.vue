@@ -9,7 +9,7 @@
 		<transition name="slide">
 			<nav class="sidebar__navigation" v-if="isOpen" @click.prevent="show">
 				<div class="list">
-					<router-link to="/" class="list__item">
+					<router-link to="/main" class="list__item">
 						<i class="fas fa-home"></i>
 						<span>Main page</span>
 					</router-link>

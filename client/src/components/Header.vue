@@ -8,11 +8,17 @@
 				</router-link>
 			</div>
 
-			<div class="app__header-buttons">
+			<div class="app__header-login-buttons" v-if="!this.currentUser">
 				<router-link to="/register" class="btn btn_outline">
 					Sign up
 				</router-link>
+
 				<router-link to="/login" class="btn btn_outline"> Sign in </router-link>
+			</div>
+
+			<div class="app__header-buttons" v-if="this.currentUser">
+				<span>{{ this.currentUser.email }}</span>
+				<div @click="this.logout" class="btn btn_outline">Logout</div>
 			</div>
 		</div>
 	</header>
@@ -21,11 +27,15 @@
 <script>
 import Sidebar from "@/components/Sidebar.vue";
 
+import { mapGetters, mapActions } from "vuex";
+
 export default {
 	name: "Header",
 	components: {
 		Sidebar,
 	},
+	computed: mapGetters(["currentUser"]),
+	methods: mapActions(["logout"]),
 };
 </script>
 
@@ -53,17 +63,20 @@ export default {
 				padding-top: 5px;
 			}
 		}
-		&-buttons {
-			& .btn {
-				margin: 0 5px;
-				padding: 5px 10px;
-				font-weight: bold;
-			}
+		& .btn {
+			margin: 0 5px;
+			padding: 5px 10px;
+			font-weight: bold;
 		}
 	}
 	@media (max-width: $xs-phones) {
-		.app__header-buttons .btn:first-child {
-			display: none;
+		.app__header {
+			&-login-buttons .btn:first-child {
+				display: none;
+			}
+			&-buttons > span {
+				display: none;
+			}
 		}
 	}
 </style>
