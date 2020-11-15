@@ -33,9 +33,9 @@
 					name="addItemExpire"
 					id="addItemExpire"
 					class="form__control"
-					placeholder=""
+					placeholder="dd-mm-yyyy"
 					required
-					v-model="expire"
+					v-model="expireDate"
 				/>
 				<label for="addItemExpire" class="form__label">Expire date*</label>
 			</div>
@@ -46,21 +46,28 @@
 </template>
 
 <script>
+import { formatDate } from "@/utils/dates.js";
+
 export default {
 	name: "AddItemForm",
 	data() {
 		return {
 			label: "",
 			quantity: null,
-			expire: "",
+			expireDate: "",
 		};
 	},
 	methods: {
 		submitHandler() {
-			console.log("items submit");
+			const newItem = {
+				label: this.label,
+				quantity: this.quantity,
+				expireDate: formatDate(this.expireDate),
+			};
+			console.log("items submit", newItem);
 			this.label = "";
 			this.quantity = "";
-			this.expire = "";
+			this.expireDate = "";
 		},
 	},
 };
