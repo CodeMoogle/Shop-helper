@@ -3,17 +3,17 @@
 		<div class="auth-form">
 			<h1>Register</h1>
 
-			<form class="form" @submit.prevent="loginHandler">
+			<form class="form" @submit.prevent="registerHandler">
 				<div class="form__group">
 					<input
 						type="text"
-						name="username"
-						id="RegUsername"
+						name="displayName"
+						id="RegDisplayname"
 						class="form__control"
 						placeholder="Chuck Norris"
-						v-model="username"
+						v-model="displayName"
 					/>
-					<label for="RegUsername" class="form__label">Username</label>
+					<label for="RegDisplayname" class="form__label">Username</label>
 				</div>
 
 				<div class="form__group">
@@ -45,14 +45,14 @@
 				<div class="form__group">
 					<input
 						type="password"
-						name="password-confirm"
-						id="RegPasswordConfirm"
+						name="passwordCheck"
+						id="RegpasswordCheck"
 						class="form__control"
 						placeholder="Password"
 						required
 						v-model="passwordCheck"
 					/>
-					<label for="RegPasswordConfirm" class="form__label"
+					<label for="RegpasswordCheck" class="form__label"
 						>Confirm Password*</label
 					>
 				</div>
@@ -69,20 +69,28 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
 	name: "Register",
 	data() {
 		return {
-			username: "",
+			displayName: "",
 			email: "",
 			password: "",
 			passwordCheck: "",
 		};
 	},
 	methods: {
+		...mapActions(["register"]),
 		registerHandler() {
-			console.log("register");
-			this.username = "";
+			this.register({
+				displayName: this.displayName,
+				email: this.email,
+				password: this.password,
+				passwordCheck: this.passwordCheck,
+			});
+			this.displayName = "";
 			this.email = "";
 			this.password = "";
 			this.passwordCheck = "";

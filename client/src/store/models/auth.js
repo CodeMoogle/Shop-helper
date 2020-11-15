@@ -6,6 +6,24 @@ export default {
 		user: null,
 	},
 	actions: {
+		async register({ commit }, newUser) {
+			const { email, password } = newUser
+			try {
+				await axios.post(`${process.env.VUE_APP_URL}/users/register`, newUser)
+				// autologin after registration
+				const userResponse = await axios.post(
+					`${process.env.VUE_APP_URL}/users/login`,
+					{ email, password }
+				)
+				commit('login', userResponse.data.user)
+
+				localStorage.setItem('auth-token', userResponse.data.token)
+				router.push('/main', () => {})
+			} catch (error) {
+				// TODO: set error to state.error
+				console.log(error.response.data.msg)
+			}
+		},
 		async login({ commit }, user) {
 			try {
 				const userResponse = await axios.post(
