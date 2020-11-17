@@ -23,15 +23,14 @@ router.post('/', auth, async (req, res) => {
 			})
 
 		const newItem = new Item({
+			userId: req.user,
 			label,
 			quantity,
 			expireDate,
-			userId: req.user,
 		})
 
-		console.log(req.user)
-
 		const savedItem = await newItem.save()
+
 		res.json(savedItem)
 	} catch (err) {
 		res.status(500).json({ error: err.message })
@@ -39,8 +38,12 @@ router.post('/', auth, async (req, res) => {
 })
 // get all user items
 router.get('/all', auth, async (req, res) => {
-	const item = await Item.find({ userId: req.user })
-	res.json(item)
+	try {
+		const items = await Item.find({ userId: req.user })
+		res.json(items)
+	} catch (err) {
+		res.status(500).json({ error: err.message })
+	}
 })
 // delete item
 router.delete('/:id', auth, async (req, res) => {

@@ -13,6 +13,10 @@ const itemSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	userId: {
+		type: String,
+		required: true,
+	},
 })
 
 module.exports = Goods = mongoose.model('item', itemSchema)

@@ -9,7 +9,7 @@
 						<span>Quantity:</span> {{ item.quantity }}
 					</p>
 					<p class="expire__data-info__exp">
-						<span>ExpDate:</span> {{ item.expDate }}
+						<span>ExpDate:</span> {{ item.expireDate }}
 					</p>
 				</div>
 			</div>

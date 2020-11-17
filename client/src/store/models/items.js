@@ -8,23 +8,30 @@ export default {
 	actions: {
 		async fetchItems({ commit }) {
 			try {
-				const itemsResponse = await axios.get(`${process.env.VUE_APP_URL}/items/all`, {
-					headers: { 'x-auth-token': token },
-				})
-				commit('fetchItems', itemsResponse)
+				const token = localStorage.getItem('auth-token')
+				await axios
+					.get(`${process.env.VUE_APP_URL}/items/all`, {
+						headers: {
+							'x-auth-token': token,
+						},
+					})
+					.then(res => commit('fetchItems', res.data))
+					.catch(error => console.log('error', error))
 			} catch (error) {
 				// TODO: set error to state.error
 				console.log(error.response.data.msg)
 			}
 		},
-		async addItem(ctx, item) {
+		async addItem({ commit }, item) {
 			try {
 				const token = localStorage.getItem('auth-token')
-
 				if (token) {
-					await axios.post(`${process.env.VUE_APP_URL}/items/`, item, {
-						headers: { 'x-auth-token': token },
-					})
+					await axios
+						.post(`${process.env.VUE_APP_URL}/items/`, item, {
+							headers: { 'x-auth-token': token },
+						})
+						.then(res => commit('addItem', res.data))
+						.catch(error => console.log('error', error))
 				}
 			} catch (error) {
 				// TODO: set error to state.error
@@ -33,11 +40,12 @@ export default {
 		},
 	},
 	mutations: {
-		fetchItems(items) {
-			this.items = items
+		fetchItems(state, items) {
+			state.items = items
 		},
-		addItem(item) {
-			this.items.unshift(item)
+		addItem(state, item) {
+			console.log('item', item)
+			state.items.unshift(item)
 		},
 	},
 	getters: {
