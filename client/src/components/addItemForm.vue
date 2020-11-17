@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { formatDate } from "@/utils/dates.js";
 
 export default {
@@ -58,13 +59,16 @@ export default {
 		};
 	},
 	methods: {
+		...mapActions(["addItem"]),
 		submitHandler() {
 			const newItem = {
 				label: this.label,
 				quantity: this.quantity,
 				expireDate: formatDate(this.expireDate),
 			};
-			console.log("items submit", newItem);
+
+			this.addItem(newItem);
+
 			this.label = "";
 			this.quantity = "";
 			this.expireDate = "";

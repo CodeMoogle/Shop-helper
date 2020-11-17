@@ -2,7 +2,7 @@ const router = require('express').Router()
 // middlewares
 const auth = require('../middleware/auth')
 // models
-const Item = require('../models/ItemModel')
+const Item = require('../models/itemModel')
 
 // routes
 router.post('/', auth, async (req, res) => {
@@ -10,10 +10,7 @@ router.post('/', auth, async (req, res) => {
 		const { label, quantity, expireDate } = req.body
 
 		// Validation
-		if (!label)
-			return res
-				.status(400)
-				.json({ msg: 'Please fill in the field with the label of the product' })
+		if (!label) return res.status(400).json({ msg: 'Please fill in the field with the label of the product' })
 
 		if (!quantity)
 			return res.status(400).json({
@@ -31,6 +28,8 @@ router.post('/', auth, async (req, res) => {
 			expireDate,
 			userId: req.user,
 		})
+
+		console.log(req.user)
 
 		const savedItem = await newItem.save()
 		res.json(savedItem)

@@ -3,11 +3,13 @@ import Vuex from 'vuex'
 
 // Store modules
 import auth from './models/auth'
+import items from './models/items'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
 	modules: {
 		auth,
+		items,
 	},
 })

@@ -1,6 +1,6 @@
 <template>
 	<div class="expire">
-		<div class="expire-wrapper" v-for="item in itemsList" :key="item.id">
+		<div class="expire-wrapper" v-for="item in allItems" :key="item._id">
 			<div class="expire__data">
 				<p class="expire__data-title">{{ item.label }}</p>
 
@@ -22,37 +22,16 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
 	name: "ItemsList",
-	data() {
-		return {
-			itemsList: [
-				{
-					id: 1,
-					label: "Maxler Golden whey 908gr Vanilla",
-					quantity: 2,
-					expDate: "2020-11-15",
-				},
-				{
-					id: 2,
-					label: "Quest, questbar 60gr birthdate cake",
-					quantity: 13,
-					expDate: "2020-12-19",
-				},
-				{
-					id: 3,
-					label: "ON Gold standart whey 908gr Chocolate",
-					quantity: 1,
-					expDate: "2021-03-15",
-				},
-				{
-					id: 4,
-					label: "Scivation BCAA 457gr Fruit Punch",
-					quantity: 7,
-					expDate: "2020-10-10",
-				},
-			],
-		};
+	computed: mapGetters(["allItems"]),
+	methods: {
+		...mapActions(["fetchItems"]),
+	},
+	mounted() {
+		this.fetchItems();
 	},
 };
 </script>

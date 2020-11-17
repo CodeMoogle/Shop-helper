@@ -11,10 +11,7 @@ export default {
 			try {
 				await axios.post(`${process.env.VUE_APP_URL}/users/register`, newUser)
 				// autologin after registration
-				const userResponse = await axios.post(
-					`${process.env.VUE_APP_URL}/users/login`,
-					{ email, password }
-				)
+				const userResponse = await axios.post(`${process.env.VUE_APP_URL}/users/login`, { email, password })
 				commit('login', userResponse.data.user)
 
 				localStorage.setItem('auth-token', userResponse.data.token)
@@ -26,10 +23,7 @@ export default {
 		},
 		async login({ commit }, user) {
 			try {
-				const userResponse = await axios.post(
-					`${process.env.VUE_APP_URL}/users/login`,
-					user
-				)
+				const userResponse = await axios.post(`${process.env.VUE_APP_URL}/users/login`, user)
 
 				commit('login', userResponse.data.user)
 
@@ -48,13 +42,11 @@ export default {
 				token = ''
 			}
 
-			const tokenResponse = await axios.post(
-				'http://localhost:5000/users/tokenIsValid',
-				null,
-				{ headers: { 'x-auth-token': token } }
-			)
+			const tokenResponse = await axios.post(`${process.env.VUE_APP_URL}/users/tokenIsValid`, null, {
+				headers: { 'x-auth-token': token },
+			})
 			if (tokenResponse.data) {
-				const userResponse = await axios.get('http://localhost:5000/users/', {
+				const userResponse = await axios.get(`${process.env.VUE_APP_URL}/users/`, {
 					headers: { 'x-auth-token': token },
 				})
 				commit('login', userResponse.data)
