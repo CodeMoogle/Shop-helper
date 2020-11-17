@@ -14,7 +14,7 @@
 				</div>
 			</div>
 
-			<a href="#" class="expire__action">
+			<a href="#" class="expire__action" @click="deleteItem(item._id)">
 				<i class="fas fa-trash-alt"></i>
 			</a>
 		</div>
@@ -28,7 +28,7 @@ export default {
 	name: "ItemsList",
 	computed: mapGetters(["allItems"]),
 	methods: {
-		...mapActions(["fetchItems"]),
+		...mapActions(["fetchItems", "deleteItem"]),
 	},
 	mounted() {
 		this.fetchItems();

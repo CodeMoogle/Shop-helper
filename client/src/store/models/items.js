@@ -38,14 +38,32 @@ export default {
 				console.log(error.response.data.msg)
 			}
 		},
+		async deleteItem({ commit }, id) {
+			try {
+				const token = localStorage.getItem('auth-token')
+				if (token) {
+					await axios
+						.delete(`${process.env.VUE_APP_URL}/items/${id}`, {
+							headers: { 'x-auth-token': token },
+						})
+						.catch(error => console.log('error', error))
+					commit('deleteItem', id)
+				}
+			} catch (error) {
+				// TODO: set error to state.error
+				console.log(error.response.data.msg)
+			}
+		},
 	},
 	mutations: {
 		fetchItems(state, items) {
 			state.items = items
 		},
 		addItem(state, item) {
-			console.log('item', item)
 			state.items.unshift(item)
+		},
+		deleteItem(state, id) {
+			state.items = state.items.filter(item => item._id !== id)
 		},
 	},
 	getters: {
