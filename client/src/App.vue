@@ -1,5 +1,6 @@
 <template>
 	<div id="app">
+		<Notification />
 		<Header />
 
 		<section class="app__content">
@@ -12,6 +13,7 @@
 
 <script>
 import Header from "@/components/Header.vue";
+import Notification from "@/components/Notification.vue";
 
 import { mapGetters, mapActions } from "vuex";
 
@@ -19,6 +21,7 @@ export default {
 	name: "App",
 	components: {
 		Header,
+		Notification,
 	},
 	computed: mapGetters(["currentUser"]),
 	methods: mapActions(["checkLoggedIn"]),
