@@ -36,6 +36,7 @@ export default {
 		background-color: var(--primary-color);
 	}
 	#app {
+		position: relative;
 		height: 100%;
 		height: 100vh;
 		font-size: 16px;

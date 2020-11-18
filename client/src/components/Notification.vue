@@ -1,21 +1,31 @@
 <template>
-	<transition name="notification-slide">
-		<div class="n-center notification">
+	<transition name="notify">
+		<div class="notification" v-if="this.notification.isOpen">
 			<div class="notification__icon">
-				<i class="far fa-bell"></i>
+				<i class="fas fa-envelope"></i>
 			</div>
 			<div class="notification__data">
-				<p class="notification__data-title">Hey, Moogle!</p>
-				<p class="notification__data-text">This is notification for you =)</p>
+				<p class="notification__data-title">
+					Hey {{ this.currentUser.displayName }} !
+				</p>
+				<p class="notification__data-text">{{ this.notification.text }}</p>
 			</div>
-			<div class="notification__close">&#10006;</div>
+			<i
+				class="far fa-times-circle notification__close"
+				@click="this.closeNotification"
+			>
+			</i>
 		</div>
 	</transition>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
 	name: "Notification",
+	computed: mapGetters(["notification", "currentUser"]),
+	methods: mapActions(["closeNotification"]),
 };
 </script>
 
@@ -28,10 +38,11 @@ export default {
 		align-items: center;
 		width: 320px;
 		max-height: 90px;
-		overflow-y: auto;
+		overflow: hidden;
 		background-color: var(--info-color);
 		color: var(--secondary-color);
 		border-radius: 8px;
+		opacity: 1;
 		z-index: 1000;
 
 		&__icon {
@@ -56,23 +67,22 @@ export default {
 
 		&__close {
 			font-size: 20px;
-			padding: 10px;
 			transition: all 0.3s;
+			padding: 10px;
 			cursor: pointer;
-
 			&:hover {
 				transform: rotate(90deg);
 			}
 		}
+	}
 
-		.notification-slide-enter-active,
-		.notification-slide-leave-active {
-			transition: right 0.3s ease-in-out;
-		}
+	.notify-enter-active,
+	.notify-leave-active {
+		transition: right 0.6s ease-in-out;
+	}
 
-		.notification-slide-enter,
-		.notification-slide-leave-to {
-			right: -350px;
-		}
+	.notify-enter,
+	.notify-leave-to {
+		right: -350px;
 	}
 </style>

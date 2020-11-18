@@ -59,7 +59,7 @@ export default {
 		};
 	},
 	methods: {
-		...mapActions(["addItem"]),
+		...mapActions(["addItem", "setNotification"]),
 		submitHandler() {
 			const newItem = {
 				label: this.label,
@@ -68,6 +68,7 @@ export default {
 			};
 
 			this.addItem(newItem);
+			this.setNotification(`You added ${newItem.label} to products list.`);
 
 			this.label = "";
 			this.quantity = "";

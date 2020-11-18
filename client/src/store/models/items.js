@@ -1,9 +1,19 @@
 import axios from 'axios'
-import router from '@/router'
 
 export default {
 	state: {
 		items: [],
+	},
+	mutations: {
+		fetchItems(state, items) {
+			state.items = items
+		},
+		addItem(state, item) {
+			state.items.unshift(item)
+		},
+		deleteItem(state, id) {
+			state.items = state.items.filter(item => item._id !== id)
+		},
 	},
 	actions: {
 		async fetchItems({ commit }) {
@@ -53,17 +63,6 @@ export default {
 				// TODO: set error to state.error
 				console.log(error.response.data.msg)
 			}
-		},
-	},
-	mutations: {
-		fetchItems(state, items) {
-			state.items = items
-		},
-		addItem(state, item) {
-			state.items.unshift(item)
-		},
-		deleteItem(state, id) {
-			state.items = state.items.filter(item => item._id !== id)
 		},
 	},
 	getters: {

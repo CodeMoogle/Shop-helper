@@ -5,6 +5,14 @@ export default {
 	state: {
 		user: null,
 	},
+	mutations: {
+		login(state, user) {
+			state.user = user
+		},
+		logout(state) {
+			state.user = null
+		},
+	},
 	actions: {
 		async register({ commit }, newUser) {
 			const { email, password } = newUser
@@ -56,14 +64,6 @@ export default {
 			commit('logout')
 			localStorage.setItem('auth-token', '')
 			router.push('/', () => {})
-		},
-	},
-	mutations: {
-		login(state, user) {
-			state.user = user
-		},
-		logout(state) {
-			state.user = null
 		},
 	},
 	getters: {

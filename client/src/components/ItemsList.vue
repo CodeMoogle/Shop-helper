@@ -17,7 +17,11 @@
 					</div>
 				</div>
 
-				<a href="#" class="expire__action" @click="deleteItem(item._id)">
+				<a
+					href="#"
+					class="expire__action"
+					@click="removeItem(item._id, item.label)"
+				>
 					<i class="fas fa-trash-alt"></i>
 				</a>
 			</div>
@@ -32,7 +36,11 @@ export default {
 	name: "ItemsList",
 	computed: mapGetters(["allItems"]),
 	methods: {
-		...mapActions(["fetchItems", "deleteItem"]),
+		...mapActions(["fetchItems", "deleteItem", "setNotification"]),
+		removeItem(id, label) {
+			this.deleteItem(id);
+			this.setNotification(`You delete ${label} from product list`);
+		},
 	},
 	mounted() {
 		this.fetchItems();
