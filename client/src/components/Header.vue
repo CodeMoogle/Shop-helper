@@ -45,7 +45,7 @@ export default {
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 50px;
+		height: $header-height;
 		background-color: var(--secondary-color);
 		box-shadow: 0 4px 6px -6px var(--dark-color);
 		z-index: 100;

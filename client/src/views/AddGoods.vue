@@ -1,5 +1,5 @@
 <template>
-	<section class="add-goods container-page flex-column">
+	<section class="add-goods container-page">
 		<div class="add-goods__form card">
 			<h2>Adding a product to the overdue list</h2>
 			<hr />
@@ -45,7 +45,7 @@ export default {
 		& .card {
 			max-width: 800px;
 			padding: 10px 5px 20px 5px;
-			margin: 0 0 20px 0;
+			margin: 0 auto 20px auto;
 		}
 	}
 </style>

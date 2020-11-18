@@ -1,22 +1,26 @@
 <template>
 	<div class="expire">
-		<div class="expire-wrapper" v-for="item in allItems" :key="item._id">
-			<div class="expire__data">
-				<p class="expire__data-title">{{ item.label }}</p>
+		<div class="expire__message" v-if="!allItems.length">No items added.</div>
 
-				<div class="expire__data-info">
-					<p class="expire__data-info__quantity">
-						<span>Quantity:</span> {{ item.quantity }}
-					</p>
-					<p class="expire__data-info__exp">
-						<span>ExpDate:</span> {{ item.expireDate }}
-					</p>
+		<div v-if="allItems.length">
+			<div class="expire-wrapper" v-for="item in allItems" :key="item._id">
+				<div class="expire__data">
+					<p class="expire__data-title">{{ item.label }}</p>
+
+					<div class="expire__data-info">
+						<p class="expire__data-info__quantity">
+							<span>Quantity:</span> {{ item.quantity }}
+						</p>
+						<p class="expire__data-info__exp">
+							<span>ExpDate:</span> {{ item.expireDate }}
+						</p>
+					</div>
 				</div>
-			</div>
 
-			<a href="#" class="expire__action" @click="deleteItem(item._id)">
-				<i class="fas fa-trash-alt"></i>
-			</a>
+				<a href="#" class="expire__action" @click="deleteItem(item._id)">
+					<i class="fas fa-trash-alt"></i>
+				</a>
+			</div>
 		</div>
 	</div>
 </template>
@@ -42,6 +46,12 @@ export default {
 		display: grid;
 		grid-template-rows: 1fr;
 		gap: 10px;
+
+		&__message {
+			text-align: center;
+			font-size: 20px;
+			font-weight: bold;
+		}
 
 		&-wrapper {
 			width: 100%;
