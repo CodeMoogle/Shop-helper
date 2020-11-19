@@ -62,7 +62,7 @@ export default {
 		...mapActions(["addItem", "setNotification"]),
 		submitHandler() {
 			const newItem = {
-				label: this.label,
+				label: this.label.trim(),
 				quantity: this.quantity,
 				expireDate: formatDate(this.expireDate),
 			};

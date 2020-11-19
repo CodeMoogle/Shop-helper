@@ -85,10 +85,10 @@ export default {
 		...mapActions(["register"]),
 		registerHandler() {
 			this.register({
-				displayName: this.displayName,
-				email: this.email,
-				password: this.password,
-				passwordCheck: this.passwordCheck,
+				displayName: this.displayName.trim(),
+				email: this.email.trim(),
+				password: this.password.trim(),
+				passwordCheck: this.passwordCheck.trim(),
 			});
 			this.displayName = "";
 			this.email = "";

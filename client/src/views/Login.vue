@@ -53,7 +53,7 @@ export default {
 	methods: {
 		...mapActions(["login"]),
 		loginHandler() {
-			this.login({ email: this.email, password: this.password });
+			this.login({ email: this.email.trim(), password: this.password.trim() });
 
 			this.email = "";
 			this.password = "";
