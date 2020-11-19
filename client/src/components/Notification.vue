@@ -12,7 +12,7 @@
 					v-if="this.notification.type === 'danger'"
 				></i>
 			</div>
-			<p class="notification__text">{{ this.notification.text }}</p>
+			<p class="notification__data">{{ this.notification.text }}</p>
 			<i
 				class="far fa-times-circle notification__close"
 				@click="this.closeNotification"
@@ -39,7 +39,7 @@ export default {
 		right: 5px;
 		display: flex;
 		align-items: center;
-		width: 320px;
+		width: 300px;
 		max-height: 90px;
 		overflow: hidden;
 		background-color: var(--info-color);
@@ -57,13 +57,12 @@ export default {
 			padding: 10px;
 		}
 
-		&__text {
+		&__data {
 			width: 100%;
 			height: 100%;
 			font-size: 14px;
 			border-right: 1px solid var(--secondary-color);
 			padding: 5px 0;
-			font-size: 14px;
 		}
 
 		&__close {
