@@ -52,6 +52,7 @@ export default {
 
 <style lang="scss">
 	.expire {
+		position: relative;
 		width: 100%;
 		display: grid;
 		grid-template-rows: 1fr;
@@ -71,9 +72,6 @@ export default {
 			border-bottom: 1px solid #000;
 			background-color: #fff;
 			transition: all 1s, background-color 0.3s ease-in-out, filter 0.3s;
-			&:nth-child(1) {
-				//border-top: 1px solid #000;
-			}
 			&:hover {
 				filter: brightness(0.95);
 			}
@@ -118,7 +116,7 @@ export default {
 	.expire-item-enter,
 	.expire-item-leave-to {
 		opacity: 0;
-		transform: translateY(30px);
+		transform: translateX(30px);
 	}
 	.expire-list-move {
 		transition: transform 1s;
