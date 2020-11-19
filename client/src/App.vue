@@ -32,9 +32,6 @@ export default {
 </script>
 
 <style lang="scss">
-	body {
-		background-color: var(--primary-color);
-	}
 	#app {
 		position: relative;
 		height: 100%;

@@ -2,7 +2,7 @@
 	<div class="expire">
 		<div class="expire__message" v-if="!allItems.length">No items added.</div>
 
-		<div v-if="allItems.length">
+		<transition-group name="expire-item" tag="div" v-if="allItems.length">
 			<div class="expire-wrapper" v-for="item in allItems" :key="item._id">
 				<div class="expire__data">
 					<p class="expire__data-title">{{ item.label }}</p>
@@ -25,7 +25,7 @@
 					<i class="fas fa-trash-alt"></i>
 				</a>
 			</div>
-		</div>
+		</transition-group>
 	</div>
 </template>
 
@@ -55,7 +55,6 @@ export default {
 		width: 100%;
 		display: grid;
 		grid-template-rows: 1fr;
-		gap: 10px;
 
 		&__message {
 			text-align: center;
@@ -69,9 +68,15 @@ export default {
 			justify-content: space-between;
 			align-items: center;
 			padding: 5px;
-			border-radius: 4px;
-			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-			transition: all 0.3s ease-in-out;
+			border-bottom: 1px solid #000;
+			background-color: #fff;
+			transition: all 1s, background-color 0.3s ease-in-out, filter 0.3s;
+			&:nth-child(1) {
+				//border-top: 1px solid #000;
+			}
+			&:hover {
+				filter: brightness(0.95);
+			}
 		}
 
 		&__data {
@@ -105,5 +110,17 @@ export default {
 				filter: brightness(0.9);
 			}
 		}
+	}
+
+	.expire-item-leave-active {
+		position: absolute;
+	}
+	.expire-item-enter,
+	.expire-item-leave-to {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	.expire-list-move {
+		transition: transform 1s;
 	}
 </style>

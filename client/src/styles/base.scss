@@ -116,8 +116,8 @@ img {
 		width: 100%;
 		padding: 10px;
 		box-shadow: none;
-		background-color: rgba(0, 0, 0, 0.02);
-		border-radius: 0px;
+		background-color: rgba(0, 0, 0, 0.05);
+		border-radius: 4px 4px 0 0;
 		border-color: var(--muted-color);
 		border-style: none none solid none;
 		transition: all 0.3s;

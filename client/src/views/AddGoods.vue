@@ -1,12 +1,12 @@
 <template>
 	<section class="add-goods container-page">
-		<div class="add-goods__form card">
+		<div class="add-goods__form">
 			<h2>Adding a product to the expiration dates list</h2>
 			<hr />
 			<AddItemForm />
 		</div>
 
-		<div class="add-goods__list card">
+		<div class="add-goods__list">
 			<h2>Expiration dates list</h2>
 			<hr />
 			<ItemsList />
@@ -35,16 +35,10 @@ export default {
 		& hr {
 			margin-bottom: 30px;
 		}
-		&__form {
-			width: 100%;
-		}
+		&__form,
 		&__list {
 			width: 100%;
-		}
-
-		& .card {
 			max-width: 800px;
-			padding: 10px 5px 20px 5px;
 			margin: 0 auto 20px auto;
 		}
 	}
