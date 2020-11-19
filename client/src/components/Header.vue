@@ -2,7 +2,7 @@
 	<header class="app__header">
 		<div class="container flex">
 			<div class="app__header-logo">
-				<Sidebar />
+				<Sidebar v-if="this.currentUser" />
 				<router-link to="/">
 					<img src="@/assets/logo/brand-logo.png" alt="logo" />
 				</router-link>

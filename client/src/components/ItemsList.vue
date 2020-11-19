@@ -39,7 +39,9 @@ export default {
 		...mapActions(["fetchItems", "deleteItem", "setNotification"]),
 		removeItem(id, label) {
 			this.deleteItem(id);
-			this.setNotification(`You delete ${label} from product list`);
+			this.setNotification({
+				text: `You delete ${label} from product list`,
+			});
 		},
 	},
 	mounted() {

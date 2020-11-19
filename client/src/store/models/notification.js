@@ -1,24 +1,29 @@
 export default {
 	state: {
-		enabled: true,
-		isOpen: false,
-		text: 'This is notification for you =)',
-		timer: 5000,
+		notification: {
+			enabled: true,
+			isOpen: false,
+			type: 'info',
+			text: 'This is notification for you =)',
+			timer: 5000,
+		},
 	},
 	mutations: {
-		show(state, text) {
-			state.isOpen = true
-			state.text = text
+		show({ notification }, { text, type = 'info' }) {
+			notification.isOpen = true
+			notification.type = type
+			notification.text = text
 		},
-		hide(state) {
-			state.isOpen = false
-			state.text = ''
+		hide({ notification }) {
+			notification.isOpen = false
+			notification.info = 'info'
+			notification.text = ''
 		},
 	},
 	actions: {
-		setNotification({ commit, getters }, text) {
+		setNotification({ commit, getters }, info) {
 			if (getters.notification.enabled) {
-				commit('show', text)
+				commit('show', info)
 				setTimeout(() => {
 					if (getters.notification.isOpen) {
 						commit('hide')
@@ -33,6 +38,6 @@ export default {
 		},
 	},
 	getters: {
-		notification: state => state,
+		notification: state => state.notification,
 	},
 }

@@ -68,7 +68,9 @@ export default {
 			};
 
 			this.addItem(newItem);
-			this.setNotification(`You added ${newItem.label} to products list.`);
+			this.setNotification({
+				text: `You added ${newItem.label} to products list.`,
+			});
 
 			this.label = "";
 			this.quantity = "";

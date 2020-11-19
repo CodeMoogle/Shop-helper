@@ -1,8 +1,16 @@
 <template>
 	<transition name="notify">
-		<div class="notification" v-if="this.notification.isOpen">
+		<div
+			class="notification"
+			:class="this.notification.type"
+			v-if="this.notification.isOpen"
+		>
 			<div class="notification__icon">
-				<i class="fas fa-envelope"></i>
+				<i class="fas fa-envelope" v-if="this.notification.type === 'info'"></i>
+				<i
+					class="fas fa-exclamation-circle"
+					v-if="this.notification.type === 'danger'"
+				></i>
 			</div>
 			<div class="notification__data">
 				<p class="notification__data-title">
@@ -29,7 +37,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.notification {
 		position: absolute;
 		top: $header-height + 10px;
@@ -74,6 +82,14 @@ export default {
 				transform: rotate(90deg);
 			}
 		}
+	}
+
+	.info {
+		background-color: var(--info-color);
+	}
+
+	.danger {
+		background-color: var(--danger-color);
 	}
 
 	.notify-enter-active,

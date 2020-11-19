@@ -1,13 +1,13 @@
 <template>
 	<section class="add-goods container-page">
 		<div class="add-goods__form card">
-			<h2>Adding a product to the overdue list</h2>
+			<h2>Adding a product to the expiration dates list</h2>
 			<hr />
 			<AddItemForm />
 		</div>
 
 		<div class="add-goods__list card">
-			<h2>Products list</h2>
+			<h2>Expiration dates list</h2>
 			<hr />
 			<ItemsList />
 		</div>
