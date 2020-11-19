@@ -69,7 +69,7 @@ export default {
 
 			this.addItem(newItem);
 			this.setNotification({
-				text: `You added ${newItem.label} to products list.`,
+				text: `You added ${newItem.label} to the expiration dates list.`,
 			});
 
 			this.label = "";

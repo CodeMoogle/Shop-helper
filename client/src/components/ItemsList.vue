@@ -40,7 +40,7 @@ export default {
 		removeItem(id, label) {
 			this.deleteItem(id);
 			this.setNotification({
-				text: `You delete ${label} from product list`,
+				text: `You delete ${label} from expiration dates list`,
 			});
 		},
 	},

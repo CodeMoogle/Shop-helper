@@ -14,7 +14,7 @@ export default {
 		},
 	},
 	actions: {
-		async register({ commit }, newUser) {
+		async register({ commit, dispatch }, newUser) {
 			const { email, password } = newUser
 			try {
 				await axios.post(`${process.env.VUE_APP_URL}/users/register`, newUser)
@@ -25,11 +25,10 @@ export default {
 				localStorage.setItem('auth-token', userResponse.data.token)
 				router.push('/main', () => {})
 			} catch (error) {
-				// TODO: set error to state.error
-				console.log(error.response.data.msg)
+				dispatch('setNotification', { text: error.response.data.msg, type: 'danger' }, { root: true })
 			}
 		},
-		async login({ commit }, user) {
+		async login({ commit, dispatch }, user) {
 			try {
 				const userResponse = await axios.post(`${process.env.VUE_APP_URL}/users/login`, user)
 
@@ -39,8 +38,7 @@ export default {
 				localStorage.setItem('auth-token', userResponse.data.token)
 				router.push('/main', () => {})
 			} catch (error) {
-				// TODO: set error to state.error
-				console.log(error.response.data.msg)
+				dispatch('setNotification', { text: error.response.data.msg, type: 'danger' }, { root: true })
 			}
 		},
 		async checkLoggedIn({ commit }) {

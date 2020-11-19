@@ -16,7 +16,7 @@ export default {
 		},
 	},
 	actions: {
-		async fetchItems({ commit }) {
+		async fetchItems({ commit, dispatch }) {
 			try {
 				const token = localStorage.getItem('auth-token')
 				await axios
@@ -28,11 +28,10 @@ export default {
 					.then(res => commit('fetchItems', res.data))
 					.catch(error => console.log('error', error))
 			} catch (error) {
-				// TODO: set error to state.error
-				console.log(error.response.data.msg)
+				dispatch('setNotification', { text: error.response.data.msg, type: 'danger' }, { root: true })
 			}
 		},
-		async addItem({ commit }, item) {
+		async addItem({ commit, dispatch }, item) {
 			try {
 				const token = localStorage.getItem('auth-token')
 				if (token) {
@@ -44,11 +43,10 @@ export default {
 						.catch(error => console.log('error', error))
 				}
 			} catch (error) {
-				// TODO: set error to state.error
-				console.log(error.response.data.msg)
+				dispatch('setNotification', { text: error.response.data.msg, type: 'danger' }, { root: true })
 			}
 		},
-		async deleteItem({ commit }, id) {
+		async deleteItem({ commit, dispatch }, id) {
 			try {
 				const token = localStorage.getItem('auth-token')
 				if (token) {
@@ -60,8 +58,7 @@ export default {
 					commit('deleteItem', id)
 				}
 			} catch (error) {
-				// TODO: set error to state.error
-				console.log(error.response.data.msg)
+				dispatch('setNotification', { text: error.response.data.msg, type: 'danger' }, { root: true })
 			}
 		},
 	},

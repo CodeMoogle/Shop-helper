@@ -12,12 +12,7 @@
 					v-if="this.notification.type === 'danger'"
 				></i>
 			</div>
-			<div class="notification__data">
-				<p class="notification__data-title">
-					Hey {{ this.currentUser.displayName }} !
-				</p>
-				<p class="notification__data-text">{{ this.notification.text }}</p>
-			</div>
+			<p class="notification__text">{{ this.notification.text }}</p>
 			<i
 				class="far fa-times-circle notification__close"
 				@click="this.closeNotification"
@@ -32,7 +27,7 @@ import { mapActions, mapGetters } from "vuex";
 
 export default {
 	name: "Notification",
-	computed: mapGetters(["notification", "currentUser"]),
+	computed: mapGetters(["notification"]),
 	methods: mapActions(["closeNotification"]),
 };
 </script>
@@ -62,15 +57,13 @@ export default {
 			padding: 10px;
 		}
 
-		&__data {
+		&__text {
 			width: 100%;
 			height: 100%;
 			font-size: 14px;
 			border-right: 1px solid var(--secondary-color);
 			padding: 5px 0;
-			&-title {
-				font-size: 14px;
-			}
+			font-size: 14px;
 		}
 
 		&__close {
