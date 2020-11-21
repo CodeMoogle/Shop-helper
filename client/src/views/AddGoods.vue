@@ -2,13 +2,11 @@
 	<section class="add-goods container-page">
 		<div class="add-goods__form">
 			<h2>Adding a product to the expiration dates list</h2>
-			<hr />
 			<AddItemForm />
 		</div>
 
 		<div class="add-goods__list">
 			<h2>Expiration dates list</h2>
-			<hr />
 			<ItemsList />
 		</div>
 	</section>

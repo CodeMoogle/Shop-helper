@@ -1,8 +1,10 @@
 import axios from 'axios'
+import { sortingBy } from '@/utils/sorting.js'
 
 export default {
 	state: {
 		items: [],
+		currentSortBy: 'expireDate',
 	},
 	mutations: {
 		fetchItems(state, items) {
@@ -13,6 +15,9 @@ export default {
 		},
 		deleteItem(state, id) {
 			state.items = state.items.filter(item => item._id !== id)
+		},
+		setCurrentSortBy(state, payload) {
+			state.currentSortBy = payload
 		},
 	},
 	actions: {
@@ -64,5 +69,6 @@ export default {
 	},
 	getters: {
 		allItems: state => state.items,
+		sortedItems: state => [...state.items].sort(sortingBy(state.currentSortBy)),
 	},
 }
