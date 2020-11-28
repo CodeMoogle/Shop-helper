@@ -1,8 +1,9 @@
 <template>
 	<header class="app__header">
 		<div class="container flex">
+			<Sidebar v-if="this.currentUser" />
+
 			<div class="app__header-logo">
-				<Sidebar v-if="this.currentUser" />
 				<router-link to="/">
 					<img src="@/assets/logo/brand-logo.png" alt="logo" />
 				</router-link>
@@ -17,8 +18,8 @@
 			</div>
 
 			<div class="app__header-buttons" v-if="this.currentUser">
-				<span>{{ this.currentUser.email }}</span>
-				<div @click="this.logout" class="btn btn_outline">Logout</div>
+				<UserActionButton :user="currentUser" />
+				<!-- <div @click="this.logout" class="btn btn_outline">Logout</div> -->
 			</div>
 		</div>
 	</header>
@@ -26,6 +27,7 @@
 
 <script>
 import Sidebar from "@/components/Sidebar.vue";
+import UserActionButton from "@/components/UserActionButton.vue";
 
 import { mapGetters, mapActions } from "vuex";
 
@@ -33,6 +35,7 @@ export default {
 	name: "Header",
 	components: {
 		Sidebar,
+		UserActionButton,
 	},
 	computed: mapGetters(["currentUser"]),
 	methods: mapActions(["logout"]),
@@ -59,7 +62,6 @@ export default {
 			& img {
 				width: auto;
 				height: 45px;
-				margin-left: 30px;
 				padding-top: 5px;
 			}
 		}

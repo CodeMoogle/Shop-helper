@@ -6,6 +6,7 @@
 
 		<div class="expire__options" v-if="sortedItems.length">
 			<div class="form__group">
+				<span for="expireSort" class="">Sort by:</span>
 				<select
 					name="expireSort"
 					id="expireSort"
@@ -19,7 +20,6 @@
 					<option value="quantity">Quantity Asc &#8593;</option>
 					<option value="-quantity">Quantity Desc &#8595;</option>
 				</select>
-				<label for="expireSort" class="form__label">Sort by:</label>
 			</div>
 		</div>
 
@@ -87,7 +87,7 @@ export default {
 			align-items: center;
 			padding: 10px 5px;
 			& > .form__group {
-				width: auto;
+				width: 150px;
 				font-size: 16px;
 				margin-bottom: 0;
 				&:focus-within {

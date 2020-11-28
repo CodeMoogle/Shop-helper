@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import AddItemForm from "@/components/addItemForm.vue";
+import AddItemForm from "@/components/AddItemForm.vue";
 import ItemsList from "@/components/ItemsList.vue";
 
 export default {
