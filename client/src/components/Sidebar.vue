@@ -15,7 +15,7 @@
 					</router-link>
 
 					<router-link to="/addGoods" class="list__item">
-						<i class="fas fa-home"></i>
+						<i class="fas fa-plus-square"></i>
 						<span>Add goods</span>
 					</router-link>
 				</div>
@@ -65,6 +65,11 @@ export default {
 		}
 		& i {
 			margin-right: 10px;
+		}
+		@media screen and (max-width: $xs-phones) {
+			& {
+				font-size: 1.2rem;
+			}
 		}
 	}
 

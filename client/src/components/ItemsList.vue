@@ -4,7 +4,7 @@
 			No items added.
 		</div>
 
-		<div class="expire__options">
+		<div class="expire__options" v-if="sortedItems.length">
 			<div class="form__group">
 				<select
 					name="expireSort"
@@ -12,16 +12,17 @@
 					class="form__control"
 					@change="sortHandler"
 				>
-					<option value="expireDate">Expire date &#8593;</option>
-					<option value="-expireDate">Expire date &#8595;</option>
-					<option value="label">Label &#8593;</option>
-					<option value="-label">Label &#8595;</option>
-					<option value="quantity">Quantity &#8593;</option>
-					<option value="-quantity">Quantity &#8595;</option>
+					<option value="expireDate">Expire date Asc &#8593;</option>
+					<option value="-expireDate">Expire date Desc &#8595;</option>
+					<option value="label">Label Asc &#8593;</option>
+					<option value="-label">Label Desc &#8595;</option>
+					<option value="quantity">Quantity Asc &#8593;</option>
+					<option value="-quantity">Quantity Desc &#8595;</option>
 				</select>
 				<label for="expireSort" class="form__label">Sort by:</label>
 			</div>
 		</div>
+
 		<transition-group name="expire-item" tag="div" v-if="sortedItems.length">
 			<div class="expire-wrapper" v-for="item in sortedItems" :key="item._id">
 				<div class="expire__data">

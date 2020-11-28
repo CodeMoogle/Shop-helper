@@ -111,6 +111,9 @@ img {
 		transform: translate(0.5em, -1.8em);
 		transform-origin: 0 0;
 		transition: all 0.3s;
+		@media screen and (max-width: $xs-phones) {
+			transform: translate(0.5em, -2.1em);
+		}
 	}
 	&__control {
 		width: 100%;
@@ -132,6 +135,9 @@ img {
 		&:not(:placeholder-shown) + .form__label {
 			transform: translateY(-3.5em) scale(0.8);
 			color: #333;
+			@media screen and (max-width: $xs-phones) {
+				transform: translateY(-4.2em) scale(0.8);
+			}
 		}
 	}
 }
@@ -165,16 +171,24 @@ img {
 	margin: 10px;
 }
 // scrollbar
-::-webkit-scrollbar {
-	width: 6px;
-	&-track {
-		border-radius: 8px;
-	}
-	&-thumb {
-		background: var(--muted-color);
-		border-radius: 10px;
-		&:hover {
-			background: var(--info-color);
+
+* {
+	// for firefox
+	scrollbar-width: thin;
+	scrollbar-color: var(--muted-color) transparent;
+
+	// for chrome engine
+	::-webkit-scrollbar {
+		width: 6px;
+		&-track {
+			border-radius: 8px;
+		}
+		&-thumb {
+			background: var(--muted-color);
+			border-radius: 10px;
+			&:hover {
+				background: var(--info-color);
+			}
 		}
 	}
 }
