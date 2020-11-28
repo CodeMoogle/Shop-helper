@@ -1,7 +1,9 @@
 <template>
-	<div class="main container-center flex">
-		<h1>Wellcome back, {{ this.currentUser.displayName }}.</h1>
-	</div>
+	<section class="main">
+		<div class="container_center flex">
+			<h1>Wellcome back, {{ this.currentUser.displayName }}.</h1>
+		</div>
+	</section>
 </template>
 
 <script>
