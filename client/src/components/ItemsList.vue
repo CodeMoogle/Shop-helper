@@ -99,7 +99,7 @@ export default {
 		&__options {
 			display: flex;
 			align-items: center;
-			padding: 10px 5px;
+			padding: 0 5px 10px 0;
 			& > .form__group {
 				width: 150px;
 				font-size: 16px;

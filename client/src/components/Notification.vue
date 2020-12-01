@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 	.notification {
-		position: absolute;
+		position: fixed;
 		top: $header-height + 10px;
 		right: 5px;
 		display: flex;

@@ -77,6 +77,9 @@ export default {
 			&-buttons > span {
 				display: none;
 			}
+			&-logo {
+				display: none;
+			}
 		}
 	}
 </style>

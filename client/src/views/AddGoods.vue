@@ -6,6 +6,8 @@
 				<AddItemForm />
 			</div>
 
+			<hr class="divider" />
+
 			<div class="add-goods__list">
 				<h2>Expiration dates list</h2>
 				<ItemsList />
@@ -31,13 +33,13 @@ export default {
 	.add-goods {
 		& h2 {
 			text-align: center;
-			margin-bottom: 2rem;
+			margin-bottom: 1.5rem;
 		}
 		&__form,
 		&__list {
 			width: 100%;
-			max-width: 800px;
-			margin: 0 auto 20px auto;
+			margin: 0 auto;
+			padding: 0 5px;
 		}
 	}
 </style>
