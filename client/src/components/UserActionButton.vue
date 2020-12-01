@@ -7,16 +7,18 @@
 		<Dropdown :isOpen="isOpen" :classes="'user-action__dropdown'">
 			<ul class="user-action__dropdown-list">
 				<li class="user-action__dropdown-list__item">
-					<span>Drop item</span>
-					<i class="fas fa-home"></i>
+					<span>Profile</span>
+					<i class="fas fa-user"></i>
 				</li>
+
 				<li class="user-action__dropdown-list__item">
-					<span>Drop item</span>
-					<i class="fas fa-home"></i>
+					<span>Settings</span>
+					<i class="fas fa-cog"></i>
 				</li>
-				<li class="user-action__dropdown-list__item">
-					<span>Drop item</span>
-					<i class="fas fa-home"></i>
+
+				<li class="user-action__dropdown-list__item" @click="this.logout">
+					<span>Logout</span>
+					<i class="fas fa-sign-out-alt"></i>
 				</li>
 			</ul>
 		</Dropdown>
@@ -26,7 +28,7 @@
 <script>
 import Dropdown from "@/components/Dropdown.vue";
 
-import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
 	name: "UserActionButton",
@@ -50,6 +52,7 @@ export default {
 		};
 	},
 	methods: {
+		...mapActions(["logout"]),
 		show(e) {
 			this.isOpen = !this.isOpen;
 		},

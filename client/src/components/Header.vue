@@ -19,7 +19,6 @@
 
 			<div class="app__header-buttons" v-if="this.currentUser">
 				<UserActionButton :user="currentUser" />
-				<!-- <div @click="this.logout" class="btn btn_outline">Logout</div> -->
 			</div>
 		</div>
 	</header>
@@ -29,7 +28,7 @@
 import Sidebar from "@/components/Sidebar.vue";
 import UserActionButton from "@/components/UserActionButton.vue";
 
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
 	name: "Header",
@@ -38,7 +37,6 @@ export default {
 		UserActionButton,
 	},
 	computed: mapGetters(["currentUser"]),
-	methods: mapActions(["logout"]),
 };
 </script>
 

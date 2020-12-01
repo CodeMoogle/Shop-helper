@@ -6,7 +6,7 @@
 
 		<div class="expire__options" v-if="sortedItems.length">
 			<div class="form__group">
-				<span for="expireSort" class="">Sort by:</span>
+				<span>Sort by:</span>
 				<select
 					name="expireSort"
 					id="expireSort"

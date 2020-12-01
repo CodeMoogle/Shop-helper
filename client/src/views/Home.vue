@@ -28,7 +28,6 @@ export default {
 	.home {
 		&__title {
 			font-weight: bold;
-			// font-size: 1.4rem2
 		}
 		&__logo {
 			margin-bottom: 2rem;
