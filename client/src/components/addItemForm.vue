@@ -47,7 +47,6 @@
 
 <script>
 import { mapActions } from "vuex";
-import { formatDate } from "@/utils/dates.js";
 
 export default {
 	name: "AddItemForm",
@@ -64,7 +63,7 @@ export default {
 			const newItem = {
 				label: this.label.trim(),
 				quantity: this.quantity,
-				expireDate: formatDate(this.expireDate),
+				expireDate: this.expireDate,
 			};
 
 			this.addItem(newItem);

@@ -24,16 +24,20 @@
 		</div>
 
 		<transition-group name="expire-item" tag="div" v-if="sortedItems.length">
-			<div class="expire-wrapper" v-for="item in sortedItems" :key="item._id">
+			<div
+				class="expire-wrapper"
+				v-for="item in sortedItems"
+				:key="item._id"
+				:class="getExpStatus(item.expireDate)"
+			>
 				<div class="expire__data">
 					<p class="expire__data-title">{{ item.label }}</p>
-
 					<div class="expire__data-info">
 						<p class="expire__data-info__quantity">
 							<span>Quantity:</span> {{ item.quantity }}
 						</p>
 						<p class="expire__data-info__exp">
-							<span>ExpDate:</span> {{ item.expireDate }}
+							<span>ExpDate:</span> {{ getFormatedDate(item.expireDate) }}
 						</p>
 					</div>
 				</div>
@@ -53,9 +57,13 @@
 <script>
 import { mapActions, mapGetters, mapMutations } from "vuex";
 
+import { compareDates, formatDate } from "@/utils/dates";
+
 export default {
 	name: "ItemsList",
-	computed: mapGetters(["sortedItems"]),
+	computed: {
+		...mapGetters(["sortedItems"]),
+	},
 	methods: {
 		...mapActions(["fetchItems", "deleteItem", "setNotification"]),
 		...mapMutations(["setCurrentSortBy"]),
@@ -67,6 +75,12 @@ export default {
 		},
 		sortHandler(e) {
 			this.setCurrentSortBy(e.target.value);
+		},
+		getFormatedDate(date) {
+			return formatDate(date);
+		},
+		getExpStatus(itemExpDate) {
+			return compareDates(itemExpDate);
 		},
 	},
 	mounted() {
@@ -109,6 +123,7 @@ export default {
 			align-items: center;
 			padding: 5px;
 			border-bottom: 1px solid #000;
+			margin-bottom: 5px;
 			background-color: #fff;
 			transition: all 0.5s linear, background-color 0.3s ease-in-out, filter 0.3s;
 			&:hover {
@@ -138,7 +153,7 @@ export default {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			width: 30px;
+			min-width: 30px;
 			height: 30px;
 			background-color: var(--secondary-color);
 			color: var(--danger-color);
@@ -146,6 +161,21 @@ export default {
 			&:hover {
 				filter: brightness(0.9);
 			}
+		}
+	}
+
+	.exp {
+		&_overdue {
+			border-left: 0.3rem solid var(--muted-color);
+		}
+		&_danger {
+			border-left: 0.3rem solid var(--danger-color);
+		}
+		&_warning {
+			border-left: 0.3rem solid var(--warning-color);
+		}
+		&_success {
+			border-left: 0.3rem solid var(--success-color);
 		}
 	}
 

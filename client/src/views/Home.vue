@@ -1,10 +1,7 @@
 <template>
 	<section class="home">
 		<div class="container-page flex_column">
-			<h2 class="home__title">Welcome to Shop Helper App</h2>
-			<div class="home__logo">
-				<img src="@/assets/logo/brand-logo.png" alt="logo" />
-			</div>
+			<h2 class="home__title">Welcome to ShopHelper App</h2>
 
 			<div class="home__actions" v-if="!this.currentUser">
 				<p class="home__actions-text">To continue, register or log in.</p>
@@ -27,10 +24,8 @@ export default {
 <style lang="scss">
 	.home {
 		&__title {
+			font-size: 1.5rem;
 			font-weight: bold;
-		}
-		&__logo {
-			margin-bottom: 2rem;
 		}
 		&__actions {
 			width: 100%;
