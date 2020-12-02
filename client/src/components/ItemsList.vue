@@ -6,7 +6,7 @@
 
 		<Loader v-if="isLoading" />
 
-		<div class="expire__options" v-if="sortedItems.length">
+		<div class="expire__options" v-if="sortedItems.length && !isLoading">
 			<div class="form__group">
 				<span>Sort by:</span>
 				<select
@@ -15,17 +15,21 @@
 					class="form__control"
 					@change="sortHandler"
 				>
-					<option value="expireDate">Expire date Asc &#8593;</option>
-					<option value="-expireDate">Expire date Desc &#8595;</option>
-					<option value="label">Label Asc &#8593;</option>
-					<option value="-label">Label Desc &#8595;</option>
-					<option value="quantity">Quantity Asc &#8593;</option>
-					<option value="-quantity">Quantity Desc &#8595;</option>
+					<option value="expireDate">Expire date &#8593;</option>
+					<option value="-expireDate">Expire date &#8595;</option>
+					<option value="label">Label &#8593;</option>
+					<option value="-label">Label &#8595;</option>
+					<option value="quantity">Quantity &#8593;</option>
+					<option value="-quantity">Quantity &#8595;</option>
 				</select>
 			</div>
 		</div>
 
-		<transition-group name="expire-item" tag="div" v-if="sortedItems.length">
+		<transition-group
+			name="expire-item"
+			tag="div"
+			v-if="sortedItems.length && !isLoading"
+		>
 			<div
 				class="expire-wrapper"
 				v-for="item in sortedItems"
@@ -108,7 +112,7 @@ export default {
 			align-items: center;
 			padding: 0 5px 10px 0;
 			& > .form__group {
-				width: 150px;
+				width: 120px;
 				font-size: 16px;
 				margin-bottom: 0;
 				&:focus-within {
@@ -162,7 +166,7 @@ export default {
 			align-items: center;
 			min-width: 30px;
 			height: 30px;
-			background-color: var(--secondary-color);
+			background-color: var(--primary-color);
 			color: var(--danger-color);
 			border-radius: 50%;
 			&:hover {

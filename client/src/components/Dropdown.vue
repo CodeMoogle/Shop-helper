@@ -41,7 +41,7 @@ export default {
 		right: 0;
 		min-width: 50px;
 		min-height: 50px;
-		background-color: var(--secondary-color);
+		background-color: var(--primary-color);
 		border-radius: 12px;
 		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 		overflow: hidden;

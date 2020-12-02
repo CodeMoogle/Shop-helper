@@ -83,7 +83,7 @@ export default {
 			right: 0;
 			min-width: 50px;
 			min-height: 50px;
-			background-color: var(--secondary-color);
+			background-color: var(--primary-color);
 			border-radius: 12px;
 			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 			overflow: hidden;
@@ -95,7 +95,7 @@ export default {
 				&__item {
 					width: 100%;
 					padding: 10px 10px;
-					background-color: var(--secondary-color);
+					background-color: var(--primary-color);
 					font-size: 1.1rem;
 					font-weight: bold;
 					transition: background-color 0.3s ease;

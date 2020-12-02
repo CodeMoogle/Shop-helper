@@ -42,8 +42,8 @@ export default {
 		width: 300px;
 		max-height: 90px;
 		overflow: hidden;
-		background-color: var(--info-color);
-		color: var(--secondary-color);
+		background-color: var(--secondary-color);
+		color: var(--primary-color);
 		border-radius: 8px;
 		opacity: 1;
 		z-index: 1000;
@@ -61,7 +61,7 @@ export default {
 			width: 100%;
 			height: 100%;
 			font-size: 14px;
-			border-right: 1px solid var(--secondary-color);
+			border-right: 1px solid var(--light-color);
 			padding: 5px 0;
 		}
 
@@ -77,7 +77,7 @@ export default {
 	}
 
 	.info {
-		background-color: var(--info-color);
+		background-color: var(--secondary-color);
 	}
 
 	.danger {

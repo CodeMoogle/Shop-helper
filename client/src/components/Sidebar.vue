@@ -52,7 +52,7 @@ export default {
 			left: 0;
 			width: 200px;
 			min-height: 100vh;
-			background-color: var(--secondary-color);
+			background-color: var(--primary-color);
 		}
 		* .list {
 			z-index: 100;
