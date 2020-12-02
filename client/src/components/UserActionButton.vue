@@ -7,18 +7,18 @@
 		<Dropdown :isOpen="isOpen" :classes="'user-action__dropdown'">
 			<ul class="user-action__dropdown-list">
 				<li class="user-action__dropdown-list__item">
-					<span>Profile</span>
 					<i class="fas fa-user"></i>
+					<span>Profile</span>
 				</li>
 
 				<li class="user-action__dropdown-list__item">
-					<span>Settings</span>
 					<i class="fas fa-cog"></i>
+					<span>Settings</span>
 				</li>
 
 				<li class="user-action__dropdown-list__item" @click="this.logout">
-					<span>Logout</span>
 					<i class="fas fa-sign-out-alt"></i>
+					<span>Logout</span>
 				</li>
 			</ul>
 		</Dropdown>
@@ -96,7 +96,6 @@ export default {
 					width: 100%;
 					padding: 10px 10px;
 					background-color: var(--secondary-color);
-					text-align: center;
 					font-size: 1.1rem;
 					font-weight: bold;
 					transition: background-color 0.3s ease;
@@ -104,8 +103,8 @@ export default {
 					&:hover {
 						background-color: rgba(0, 0, 0, 0.1);
 					}
-					& > span {
-						margin-right: 0.5rem;
+					& > i {
+						margin: 0 1rem 0 2rem;
 					}
 				}
 			}

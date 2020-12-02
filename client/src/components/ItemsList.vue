@@ -1,8 +1,10 @@
 <template>
 	<div class="expire">
-		<div class="expire__message" v-if="!sortedItems.length">
+		<div class="expire__message" v-if="!sortedItems.length && !isLoading">
 			No items added.
 		</div>
+
+		<Loader v-if="isLoading" />
 
 		<div class="expire__options" v-if="sortedItems.length">
 			<div class="form__group">
@@ -55,14 +57,19 @@
 </template>
 
 <script>
+import Loader from "@/components/Loader.vue";
+
 import { mapActions, mapGetters, mapMutations } from "vuex";
 
 import { compareDates, formatDate } from "@/utils/dates";
 
 export default {
 	name: "ItemsList",
+	components: {
+		Loader,
+	},
 	computed: {
-		...mapGetters(["sortedItems"]),
+		...mapGetters(["sortedItems", "isLoading"]),
 	},
 	methods: {
 		...mapActions(["fetchItems", "deleteItem", "setNotification"]),

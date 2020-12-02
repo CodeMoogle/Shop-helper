@@ -4,6 +4,7 @@ import { sortingBy } from '@/utils/sorting.js'
 export default {
 	state: {
 		items: [],
+		isLoading: false,
 		currentSortBy: 'expireDate',
 	},
 	mutations: {
@@ -19,9 +20,14 @@ export default {
 		setCurrentSortBy(state, payload) {
 			state.currentSortBy = payload
 		},
+		setItemsLoading(state, payload) {
+			state.isLoading = payload
+		}
 	},
 	actions: {
 		async fetchItems({ commit, dispatch }) {
+			commit('setItemsLoading', true)
+
 			try {
 				const token = localStorage.getItem('auth-token')
 				await axios
@@ -30,7 +36,10 @@ export default {
 							'x-auth-token': token,
 						},
 					})
-					.then(res => commit('fetchItems', res.data))
+					.then(res => {
+						commit('fetchItems', res.data)
+						commit('setItemsLoading', false)
+					})
 					.catch(error => console.log('error', error))
 			} catch (error) {
 				dispatch('setNotification', { text: error.response.data.msg, type: 'danger' }, { root: true })
@@ -70,5 +79,6 @@ export default {
 	getters: {
 		allItems: state => state.items,
 		sortedItems: state => [...state.items].sort(sortingBy(state.currentSortBy)),
+		isLoading: state => state.isLoading
 	},
 }
