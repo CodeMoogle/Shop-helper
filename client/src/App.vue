@@ -48,10 +48,4 @@ export default {
 	.component-fade-leave-to {
 		opacity: 0;
 	}
-
-	@media screen and (max-width: $xs-phones) {
-		#app {
-			font-size: 0.8rem;
-		}
-	}
 </style>

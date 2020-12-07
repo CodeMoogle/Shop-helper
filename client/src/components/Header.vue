@@ -71,6 +71,7 @@ export default {
 	}
 	@media (max-width: $xs-phones) {
 		.app__header {
+			font-size: 0.8rem;
 			&-login-buttons .btn:first-child {
 				display: none;
 			}
@@ -78,7 +79,7 @@ export default {
 				display: none;
 			}
 			&-logo {
-				display: none;
+				transform: scale(0.9);
 			}
 		}
 	}

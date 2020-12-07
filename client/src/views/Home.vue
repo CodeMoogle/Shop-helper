@@ -26,6 +26,7 @@ export default {
 		&__title {
 			font-size: 1.5rem;
 			font-weight: bold;
+			margin-bottom: 4rem;
 		}
 		&__actions {
 			width: 100%;
