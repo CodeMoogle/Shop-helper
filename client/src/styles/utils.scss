@@ -47,14 +47,3 @@
 	align-items: center;
 	height: 100%;
 }
-
-/* modals */
-.outside-sidebar {
-	width: 100vw;
-	height: 100vh;
-	position: fixed;
-	top: 50px;
-	left: 0px;
-	background-color: rgba(0, 0, 0, 0.2);
-	z-index: -1;
-}

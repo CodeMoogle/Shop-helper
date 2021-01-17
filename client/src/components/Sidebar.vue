@@ -1,44 +1,55 @@
 <template>
-	<div class="sidebar">
-		<div class="sidebar__btn" @click.prevent="show">
+	<div class="sidebar" v-click-outside="hide">
+		<div class="sidebar__btn" @click="show">
 			<a href="#">
 				<i class="fas fa-bars"></i>
 			</a>
 		</div>
 
 		<transition name="slide">
-			<nav class="sidebar__navigation" v-if="isOpen" @click.prevent="show">
-				<div class="list">
-					<router-link to="/main" class="list__item">
-						<i class="fas fa-home"></i>
-						<span>Main page</span>
-					</router-link>
-
-					<router-link to="/addGoods" class="list__item">
-						<i class="fas fa-plus-square"></i>
-						<span>Add goods</span>
-					</router-link>
-				</div>
+			<nav class="sidebar__navigation" v-if="isOpen">
+				<ul class="list">
+					<li
+						class="list__item"
+						v-for="link in links"
+						:key="link.title + link.linkTo"
+						@click="hide"
+					>
+						<router-link :to="link.linkTo">
+							<i :class="link.linkIcon"></i>
+							<span>{{ link.title }}</span>
+						</router-link>
+					</li>
+				</ul>
 			</nav>
 		</transition>
-		<div v-if="isOpen" class="outside-sidebar" @click="isOpen = false"></div>
 	</div>
 </template>
 
 <script>
+import clickOutside from "@/utils/directives";
+
 export default {
 	name: "Sidebar",
 	data() {
 		return {
 			isOpen: false,
+			links: [
+				{ title: "Main Page", linkTo: "/main", linkIcon: "fas fa-home" },
+				{
+					title: "Add Goods",
+					linkTo: "/addGoods",
+					linkIcon: "fas fa-plus-square",
+				},
+			],
 		};
 	},
 	methods: {
-		show(e) {
-			if (e.target instanceof HTMLElement && !this.$el.contains(e.target)) {
-				this.isOpen = false;
-			}
+		show() {
 			this.isOpen = !this.isOpen;
+		},
+		hide() {
+			this.isOpen = false;
 		},
 	},
 };
@@ -53,6 +64,7 @@ export default {
 			width: 200px;
 			min-height: 100vh;
 			background-color: var(--primary-color);
+			box-shadow: 3px 0 5px -2px var(--muted-color);
 		}
 		* .list {
 			z-index: 100;
@@ -66,6 +78,7 @@ export default {
 		& i {
 			margin-right: 10px;
 		}
+
 		@media screen and (max-width: $xs-phones) {
 			& {
 				font-size: 1.2rem;

@@ -1,5 +1,5 @@
 <template>
-	<div class="user-action">
+	<div class="user-action" v-click-outside="hide">
 		<span class="btn" @click="show">
 			<p class="user-action__username">{{ getUser.displayName }}</p>
 			<i class="fas fa-arrow-down"></i>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import clickOutside from "@/utils/directives";
+
 import Dropdown from "@/components/Dropdown.vue";
 
 import { mapActions } from "vuex";
@@ -53,8 +55,11 @@ export default {
 	},
 	methods: {
 		...mapActions(["logout"]),
-		show(e) {
+		show() {
 			this.isOpen = !this.isOpen;
+		},
+		hide() {
+			this.isOpen = false;
 		},
 	},
 };
@@ -96,10 +101,14 @@ export default {
 					width: 100%;
 					padding: 10px 10px;
 					background-color: var(--primary-color);
+					color: var(--muted-color);
 					font-size: 1.1rem;
 					font-weight: bold;
 					transition: background-color 0.3s ease;
 					cursor: pointer;
+					&:last-child {
+						color: var(--danger-color);
+					}
 					&:hover {
 						background-color: rgba(0, 0, 0, 0.1);
 					}
